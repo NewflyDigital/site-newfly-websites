@@ -1,0 +1,23 @@
+import Link from "next/link";
+import styles from "../styles/RodapeAL.module.css";
+
+export default function RodapeNewFly() {
+  return (
+    <div className={styles.root}>
+      <div className={styles.content}>
+        <span style={{ display: "flex", flexDirection: "row" }}>
+          Copyright 2025 &nbsp;|&nbsp;&nbsp;Site Produzido por &nbsp;
+        </span>
+        <Link legacyBehavior href="https://www.instagram.com">
+          <a target="_blank">
+            <img
+              className="w-full max-w-[5rem]"
+              src="/static/images/Logo-Horizontal.png"
+              alt="AL Agência de Marketing"
+            />
+          </a>
+        </Link>
+      </div>
+    </div>
+  );
+}
