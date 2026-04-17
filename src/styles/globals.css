@@ -11,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: Geologica;
-  background-color: #ffffff;
+  background-color: #333333;
   font-size: 15px;
   font-weight: 400;
   color: #000;
@@ -36,7 +36,10 @@ h3,
 h4 {
   font-family: Wix Madefor Display;
 }
-
+button {
+  cursor: pointer;
+  font-family: Geologica;
+}
 p,
 h1,
 h2,

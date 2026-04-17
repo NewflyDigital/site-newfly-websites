@@ -30,27 +30,25 @@ export default function Home() {
     <>
       <Menu />
       <a id="banner"></a>
-      <Banner />
-      <section className={`${styles.bgcarroussel} `}>
-        <div className={styles.carrossel}>
-          <div className={styles.track} ref={trackRef}>
-            <img src="/static/images/parceiros/angelo-wan-mentorr.png" alt="" />
-            <img src="/static/images/parceiros/ckf.png" alt="" />
-            <img
-              src="/static/images/parceiros/Inovar-climatizacaoo.png"
-              alt=""
-            />
-            <img
-              src="/static/images/parceiros/Integrity-buildingg.png"
-              alt=""
-            />
-            <img src="/static/images/parceiros/longhi-episs.png" alt="" />
-            <img
-              src="/static/images/parceiros/petland-distribuicao.png"
-              alt=""
-            />
-            <img src="/static/images/parceiros/Polipisoo.png" alt="" />
-            <img src="/static/images/parceiros/maxxi-consultoriaa.png" alt="" />
+      <section className={styles.backgroundbanner}>
+        <div className={styles.internobanner}>
+          <div className={styles.boxbanner}>
+            <h2>
+              A sua <spam style={{ color: "#d82087" }}>agência</spam>
+            </h2>
+            <h4>
+              Somos{" "}
+              <spam style={{ color: "#d82087", fontWeight: "300" }}>
+                a agência digital que vai acelerar
+              </spam>{" "}
+              sua transformação digital.
+            </h4>
+
+            <Link legacyBehavior href="/">
+              <a className={styles.botao} target="_blank">
+                Fale conosco e tenha uma consultoria sem compromisso!
+              </a>
+            </Link>
           </div>
         </div>
       </section>

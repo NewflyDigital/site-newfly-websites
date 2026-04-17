@@ -3,111 +3,135 @@ import styles from "../styles/Menu.module.css";
 import Link from "next/link";
 
 function Menu() {
-  React.useEffect(() => {
-    const btnMobile = document.getElementById(`${styles.btn_mobile}`);
-    btnMobile.addEventListener("click", toggleMenu);
-  }, []);
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
-  React.useEffect(() => {
-    const btnMobile = document.getElementById(`${styles.btn_mobile}`);
-    btnMobile.addEventListener("click", toggleMenu);
-
-    window.addEventListener("scroll", () => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-
-      const menu = document.getElementById(styles.menuheader);
-
-      if (winScroll > 0) {
-        menu.classList.add(styles["menu-alternative"]);
-      } else {
-        menu.classList.remove(styles["menu-alternative"]);
-      }
-    });
-  }, []);
-
-  function toggleMenu() {
-    const nav = document.getElementById(`${styles.nav}`);
-    nav.classList.toggle(styles.active);
+  // SCROLL SUAVE
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+    }
   }
 
+  const menuRef = React.useRef(null);
+  // HEADER TRANSPARENTE -> SCROLL
+  React.useEffect(() => {
+    if (!menuRef.current) return;
+
+    const menuElement = menuRef.current;
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        menuElement.classList.add(styles["menu-alternative"]);
+      } else {
+        menuElement.classList.remove(styles["menu-alternative"]);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div id={styles.menuheader} className={styles.header}>
-      <div className={`${styles.interno}`}>
-        <img
-          src="/static/images/Logo-Horizontal-branco.png"
-          alt="Logo horizontal"
-          className={styles.logo}
-        />
+    <div id={styles.menuheader} ref={menuRef} className={styles.header}>
+      <div className={styles.interno}>
+        <Link href="/" className={styles.logo}>
+          <img src="/static/images/Logo-Horizontal.png" alt="Logo" />
+        </Link>
 
-        <button id={`${styles.btn_mobile}`}>
-          <span id={`${styles.hamburguer}`}></span>
-        </button>
+        {/* MENU DESKTOP (LP) */}
+        <ul className={`${styles.menu} ${styles.navbar}`}>
+          <li onClick={() => scrollToSection("inicio")}>Início</li>
+          <li onClick={() => scrollToSection("sites")}>Sites</li>
+          <li onClick={() => scrollToSection("como")}>Como funciona</li>
+          <li onClick={() => scrollToSection("projetos")}>Projetos</li>
+          <li onClick={() => scrollToSection("preco")}>Preço</li>
+          <li onClick={() => scrollToSection("contato")}>Contato</li>
+        </ul>
 
-        <ul
-          id={`${styles.nav}`}
-          className={`${styles.menu} ${styles.navbar} ${styles.a2} `}
+        {/* BOTÃO HAMBURGER */}
+        <button
+          className={`${styles.hamburger} ${menuOpen ? styles.active : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <li>
-            <Link legacyBehavior href="/">
-              <a> Início</a>
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="/agencia">
-              <a>Nossa Agência</a>
-            </Link>
-          </li>
-
-          <li>
-            <Link legacyBehavior href="/#servicos">
-              <a>Serviços</a>
-            </Link>
-          </li>
-
-          {/*
-          <li>
-            <Link legacyBehavior href="/cases">
-              <a>Cases</a>
-            </Link>
-          </li>
-
-          <li>
-            <Link legacyBehavior href="/blog">
-              <a>Blog</a>
-            </Link>
-          </li>
-         */}
-        </ul>
-        <button className={styles.orcamento}>
-          <Link legacyBehavior href="/contato">
-            <a>Contato</a>
-          </Link>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+      </div>
 
-        <ul className={`${styles.social_media}`}>
-          <li>
-            <Link legacyBehavior href="https://www.facebook.com">
-              <a target="_blank">
-                <img src="/facebook-branco.png"></img>
-              </a>
+      {/* OVERLAY MENU */}
+      <div className={`${styles.overlayMenu} ${menuOpen ? styles.show : ""}`}>
+        <div className={styles.overlayContent}>
+          {/* ESQUERDA */}
+          <div className={styles.left}>
+            <h2>
+              Criamos sites que <i>geram clientes</i>
+            </h2>
+
+            <div className={styles.divider}></div>
+
+            <div className={styles.buttons}>
+              <button
+                className={styles.orcamento}
+                onClick={() => scrollToSection("contato")}
+              >
+                Solicitar orçamento
+              </button>
+
+              <button
+                className={styles.contato}
+                onClick={() => scrollToSection("projetos")}
+              >
+                Ver projetos
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.verticalDivider}></div>
+
+          {/* DIREITA (PÁGINAS REAIS) */}
+          <div className={styles.right}>
+            <Link href="/sites" className={styles.menuItem}>
+              <div className={styles.card}>
+                <h4>Criação de Sites</h4>
+                <p>Sites institucionais profissionais</p>
+              </div>
             </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="https://www.instagram.com/">
-              <a target="_blank">
-                <img src="/Instagram-branco.png"></img>
-              </a>
+
+            <Link href="/landing-pages" className={styles.menuItem}>
+              <div className={styles.card}>
+                <h4>Landing Pages</h4>
+                <p>Páginas focadas em conversão</p>
+              </div>
             </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="https://www.linkedin.com/company/">
-              <a target="_blank">
-                <img src="/LinkedIn-branco.png"></img>
-              </a>
+
+            <Link href="/ecommerce" className={styles.menuItem}>
+              <div className={styles.card}>
+                <h4>Lojas Virtuais</h4>
+                <p>Venda online com estrutura completa</p>
+              </div>
             </Link>
-          </li>
-        </ul>
+
+            <Link href="/sobre" className={styles.menuItem}>
+              <div className={styles.card}>
+                <h4>Sobre a Agência</h4>
+                <p>Conheça a Newfly</p>
+              </div>
+            </Link>
+
+            <Link href="/blog" className={styles.menuItem}>
+              <div className={styles.card}>
+                <h4>Blog</h4>
+                <p>Conteúdo sobre marketing e sites</p>
+              </div>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
