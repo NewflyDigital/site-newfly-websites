@@ -58,27 +58,6 @@ function Rodape() {
                 </button>
               </Link>
             </div>
-
-            <div className={` ${styles.box_row} ${styles.textobranco2}`}>
-              Acompanhe nossas
-              <br />
-              novidades, deixe seu e-mail
-            </div>
-
-            <div className={` ${styles.box_row}`}>
-              <TextField
-                value={email || ""}
-                type="text"
-                margin="normal"
-                required
-                width="8rem"
-                id="email"
-                label="E-Mail"
-                name="email"
-                onChange={(event) => setEmail(event.target.value)}
-                sx={{ marginRight: ".5rem" }}
-              ></TextField>
-            </div>
           </div>
 
           <div className={styles.box}>
@@ -96,41 +75,32 @@ function Rodape() {
               */}
               <div className={` ${styles.box_row} ${styles.footericon}`}>
                 <EmailIcon className={` ${styles.icon}`} />
-                contato@agenciaal.com.br
+                contato@newfly.com.br
               </div>
               <div className={` ${styles.box_row} ${styles.footericon}`}>
                 <PhoneIcon className={` ${styles.icon}`} />
-                +55 54 9.8116 8850
+                +55 54 9.9999 9999
               </div>
             </span>
 
             <div className={styles.box}>
               <ul className={styles.social_media}>
                 <li>
-                  <Link
-                    legacyBehavior
-                    href="https://www.facebook.com/profile.php?id=61557543758757"
-                  >
+                  <Link legacyBehavior href="https://www.facebook.com/">
                     <a>
                       <img src="/facebook-preto.png"></img>
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    legacyBehavior
-                    href="https://www.instagram.com/al_agencia_de_marketing/"
-                  >
+                  <Link legacyBehavior href="https://www.instagram.com/">
                     <a>
                       <img src="/Instagram-preto.png"></img>
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    legacyBehavior
-                    href="https://www.linkedin.com/company/al-ag%C3%AAncia-de-marketing/"
-                  >
+                  <Link legacyBehavior href="https://www.linkedin.com/">
                     <a>
                       <img src="/LinkedIn-preto.png"></img>
                     </a>

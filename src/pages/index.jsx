@@ -26,6 +26,48 @@ export default function Home() {
     track.innerHTML += clone;
   }, []);
 
+  React.useEffect(() => {
+    const elements = document.querySelectorAll(
+      `.${styles.reveal}, .${styles.revealLeft}`,
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.show);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  /*projetos*/
+  const projects = [
+    "/static/images/site-projeto1.png",
+    "/static/images/site-projeto2.png",
+    "/static/images/site-projeto1.png",
+    "/static/images/site-projeto2.png",
+    "/static/images/site-projeto1.png",
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(2);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % projects.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <Menu />
@@ -34,11 +76,11 @@ export default function Home() {
         <div className={styles.internobanner}>
           <div className={styles.boxbanner}>
             <h2>
-              A sua <spam style={{ color: "#d82087" }}>agência</spam>
+              A sua <spam style={{ color: "#bff747" }}>agência</spam>
             </h2>
             <h4>
               Somos{" "}
-              <spam style={{ color: "#d82087", fontWeight: "300" }}>
+              <spam style={{ color: "#bff747", fontWeight: "300" }}>
                 a agência digital que vai acelerar
               </spam>{" "}
               sua transformação digital.
@@ -46,172 +88,182 @@ export default function Home() {
 
             <Link legacyBehavior href="/">
               <a className={styles.botao} target="_blank">
-                Fale conosco e tenha uma consultoria sem compromisso!
+                Crie seu site agora!
               </a>
             </Link>
           </div>
         </div>
       </section>
 
-      <section
-        id="quemSomos"
-        style={{ paddingBottom: "100px", paddingTop: "100px" }}
-        className={styles.background}
-      >
+      <section id="quemSomos" className={styles.section}>
         <div className={styles.interno}>
-          <div
-            className={`${styles.box} ${styles.texto}`}
-            style={{ marginLeft: "2rem" }}
-          >
-            <h3>
-              Somos uma <spam style={{ color: "#28B3C7" }}>agência 360º</spam>
-              com experiência para fazer o seu negócio ter o{" "}
-            </h3>
-            <div className={styles.bloco}>Sucesso que você quer!</div>
+          <div className={`${styles.box1} ${styles.reveal} ${styles.delay2} `}>
+            <span className={styles.badge}>Agência 360º</span>
+
+            <h2>
+              Criamos experiências digitais que <span>geram clientes</span>
+            </h2>
+
             <p>
-              Transformar o seu negócio em um projeto lucrativo é um desafio que
-              a atual geração digital busca incansavelmente. Saber administrar
-              influência digital com transparência e autoridade é o nosso
-              principal objetivo!
+              Não fazemos apenas sites. Desenvolvemos estratégias completas para
+              transformar visitantes em clientes reais, aumentando sua presença
+              e resultados no digital.
+            </p>
+
+            <div className={styles.cta}>
+              <button className={styles.primary}>Quero meu site agora</button>
+
+              <button className={styles.secondary}>Ver projetos</button>
+            </div>
+          </div>
+
+          <div className={`${styles.box2} ${styles.imageBox} ${styles.reveal}`}>
+            <div className={`${styles.screen}  ${styles.reveal}`}>
+              <img
+                src="/static/images/site2.png"
+                className={styles.scrollImage}
+                alt="Preview do site"
+              />
+            </div>
+            <div className={`${styles.screen}  ${styles.reveal}`}>
+              <img
+                src="/static/images/site1.png"
+                className={styles.scrollImage2}
+                alt="Preview do site"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="problema" className={styles.sectionProblema}>
+        <div className={styles.interno}>
+          {/* ESQUERDA */}
+          <div className={styles.box1}>
+            <span className={styles.badge}>Problema</span>
+
+            <h2>
+              Seu site pode estar <span>te fazendo perder clientes</span>
+            </h2>
+
+            <div className={styles.listaProblemas}>
+              <div className={`${styles.item} ${styles.revealLeft}`}>
+                ❌ Não aparece no Google
+              </div>
+
+              <div
+                className={`${styles.item} ${styles.revealLeft} ${styles.delay1}`}
+              >
+                ❌ Visual ultrapassado e sem credibilidade
+              </div>
+
+              <div
+                className={`${styles.item} ${styles.revealLeft} ${styles.delay2}`}
+              >
+                ❌ Não gera contatos ou vendas
+              </div>
+
+              <div
+                className={`${styles.item} ${styles.revealLeft} ${styles.delay3}`}
+              >
+                ❌ Lento e ruim no celular
+              </div>
+            </div>
+          </div>
+
+          {/* DIREITA */}
+          <div className={`${styles.box2} ${styles.imageBox} ${styles.reveal}`}>
+            <div className={styles.imageWrapper}>
+              <img src="/static/images/site-ruim.png" alt="Site ruim" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="solucao" className={styles.sectionSolucao}>
+        <div className={styles.internoSolucao}>
+          <div className={`${styles.box1} ${styles.center}`}>
+            <span className={`${styles.badge} ${styles.reveal}`}>Solução</span>
+
+            <h2 className={`${styles.reveal} ${styles.delay1}`}>
+              Criamos sites pensados para <span>gerar resultados reais</span>
+            </h2>
+
+            <p className={`${styles.reveal} ${styles.delay2}`}>
+              Não é só estética. Cada detalhe é projetado para atrair, prender
+              atenção e converter visitantes em clientes.
             </p>
           </div>
 
-          <div
-            className={`${styles.box}`}
-            style={{ maxWidth: "40rem", marginTop: "2rem" }}
-          >
-            <img src="/static/images/blog.png" alt="" />
+          {/* CARDS */}
+          <div className={styles.box2}>
+            <div className={`${styles.card} ${styles.reveal} ${styles.delay1}`}>
+              ⚡<h4>Sites rápidos</h4>
+              <p>Carregamento otimizado para não perder visitantes</p>
+            </div>
+
+            <div className={`${styles.card} ${styles.reveal} ${styles.delay2}`}>
+              🎨
+              <h4>Design profissional</h4>
+              <p>Visual moderno que gera confiança instantânea</p>
+            </div>
+
+            <div className={`${styles.card} ${styles.reveal} ${styles.delay3}`}>
+              📈
+              <h4>Conversão</h4>
+              <p>Estrutura pensada para gerar contatos e vendas</p>
+            </div>
+
+            <div className={`${styles.card} ${styles.reveal} ${styles.delay3}`}>
+              🔍
+              <h4>SEO básico</h4>
+              <p>Seu site preparado para aparecer no Google</p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className={`${styles.ctaBox} ${styles.reveal} ${styles.delay3}`}>
+            <button className={styles.primaryBig}>
+              Quero um site que gera clientes
+            </button>
           </div>
         </div>
       </section>
 
-      <section id="servicos" className={styles.background3}>
-        <div className={styles.interno3}>
-          <h2 className={styles.titulo}>
-            Trazemos soluções para quaisquer
-            <br />
-            estratégias <span>offline</span> ou <span>online</span>
-            <a>*</a>
-          </h2>
-        </div>
-        <div className={styles.interno3}>
-          <Link legacyBehavior href="/tecnologia">
-            <div className={styles.opcoes}>
-              <div className={`${styles.caixa1} `}>
-                <spam className="ml-[4rem]">
-                  <h4>Tecnologia</h4>
-                  <span>aplicativos, websites e sistemas personalizados</span>
-                </spam>
-              </div>
-            </div>
-          </Link>
+      <section id="projetos" className={styles.sectionProjetos}>
+        <div className={styles.internoProjetos}>
+          <span className={styles.badge}>Projetos</span>
 
-          <Link legacyBehavior href="/design">
-            <div className={styles.opcoes}>
-              <div className={`${styles.caixa2} `}>
-                <spam className="ml-[4rem]">
-                  <h4>Design e Criação</h4>
-                  <span>criatividade e arquitetura para négocios digitais</span>
-                </spam>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        <div className={styles.interno3}>
-          <Link legacyBehavior href="/inovacao">
-            <div className={styles.opcoes}>
-              <div className={`${styles.caixa3} `}>
-                <spam className="ml-[4rem]">
-                  <h4>Posicionamento Digital</h4>
-                  <span>
-                    comportamento, leitura e expressão no meio digital
-                  </span>
-                </spam>
-              </div>
-            </div>
-          </Link>
-
-          <Link legacyBehavior href="/ia">
-            <div className={styles.opcoes}>
-              <div className={`${styles.caixa4} `}>
-                <spam className="ml-[4rem]">
-                  <h4>Redação</h4>
-                  <span>
-                    escrita e planejamento de conteúdos para todos os usos
-                  </span>
-                </spam>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-      <section className={styles.background2}>
-        <div className={styles.interno1}>
-          <h2 className={styles.blogtexto}>
-            O que
-            <br />
-            estamos
-            <br />
-            falando?
+          <h2>
+            Alguns sites que <span>já criamos</span>
           </h2>
 
-          <div className="w-full max-w-[70rem] flex row justify-between items-center">
-            <div className={styles.blog}>
-              <h4>
-                <img src="/static/images/al-agencia-data.png" /> 01 / 08 /24
-              </h4>
-              <h2>
-                “5 dicas para fortalecer a amizade no Dia do Amigo – Marketing
-                de Conteúdo”
-              </h2>
-              <span>
-                <p>Leia mais&nbsp;&nbsp;</p>
-                <img
-                  className="mt-[5px]"
-                  src="/static/images/flecha-rosa.png"
-                />
-              </span>
+          <div className={styles.carousel}>
+            <div
+              className={styles.track2}
+              style={{
+                transform: `translateY(-${activeIndex * 300}px)`,
+                transition: "transform 0.6s ease",
+              }}
+            >
+              {projects.map((img, i) => (
+                <div
+                  key={i}
+                  className={`${styles.item} ${
+                    i === activeIndex ? styles.active : ""
+                  }`}
+                >
+                  <img src={img} />
+                </div>
+              ))}
             </div>
-
-            <div className={styles.blog}>
-              <h4>
-                <img src="/static/images/al-agencia-data.png" /> 01 / 08 /24
-              </h4>
-              <h2>
-                “5 dicas para fortalecer a amizade no Dia do Amigo – Marketing
-                de Conteúdo”
-              </h2>
-              <span>
-                <p>Leia mais&nbsp;&nbsp;</p>
-                <img
-                  className="mt-[5px]"
-                  src="/static/images/flecha-rosa.png"
-                />
-              </span>
-            </div>
-
-            <div className={styles.blog}>
-              <h4>
-                <img src="/static/images/al-agencia-data.png" /> 01 / 08 /24
-              </h4>
-              <h2>
-                “5 dicas para fortalecer a amizade no Dia do Amigo – Marketing
-                de Conteúdo”
-              </h2>
-              <span>
-                <p>Leia mais&nbsp;&nbsp;</p>
-                <img
-                  className="mt-[5px]"
-                  src="/static/images/flecha-rosa.png"
-                />
-              </span>
-            </div>
-
-            <Link href="/blog">
-              <button className={styles.LerBlog}>Ver mais...</button>
-            </Link>
           </div>
+
+          <p className={styles.sub}>
+            Sites modernos, rápidos e focados em resultado.
+          </p>
+
+          <button className={styles.primaryBig}>Quero um site assim</button>
         </div>
       </section>
 

@@ -12,7 +12,7 @@ class DocumentosSite extends Document {
       <Html>
         <Head>
           <link rel="icon" href="/favicon.png" />
-          <title>Newfly Digital</title>
+          <title>Newfly Digital | Agência de Marketing</title>
           <meta
             name="description"
             content="Newfly Digital Agência de Marketing"

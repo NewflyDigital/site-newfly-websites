@@ -103,13 +103,6 @@ function Menu() {
               </div>
             </Link>
 
-            <Link href="/landing-pages" className={styles.menuItem}>
-              <div className={styles.card}>
-                <h4>Landing Pages</h4>
-                <p>Páginas focadas em conversão</p>
-              </div>
-            </Link>
-
             <Link href="/ecommerce" className={styles.menuItem}>
               <div className={styles.card}>
                 <h4>Lojas Virtuais</h4>
@@ -121,13 +114,6 @@ function Menu() {
               <div className={styles.card}>
                 <h4>Sobre a Agência</h4>
                 <p>Conheça a Newfly</p>
-              </div>
-            </Link>
-
-            <Link href="/blog" className={styles.menuItem}>
-              <div className={styles.card}>
-                <h4>Blog</h4>
-                <p>Conteúdo sobre marketing e sites</p>
               </div>
             </Link>
           </div>
