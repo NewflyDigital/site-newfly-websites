@@ -634,7 +634,7 @@
 }
 
 /* ITEM */
-.item {
+.item2 {
   width: 100%;
   max-width: 800px; /* antes 500 */
   height: 300px; /* 👈 MUITO mais destaque */
@@ -647,7 +647,7 @@
   transition: all 0.5s ease;
 }
 
-.item img {
+.item2 img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* 👈 importante */

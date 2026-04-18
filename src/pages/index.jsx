@@ -249,7 +249,7 @@ export default function Home() {
               {projects.map((img, i) => (
                 <div
                   key={i}
-                  className={`${styles.item} ${
+                  className={`${styles.item2} ${
                     i === activeIndex ? styles.active : ""
                   }`}
                 >
