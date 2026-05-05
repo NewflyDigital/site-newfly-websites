@@ -3,7 +3,6 @@ import Rodape from "../components/rodape";
 import Whats from "../components/whats";
 import styles from "../styles/Agencia.module.css";
 import Link from "next/link";
-import RodapeAl from "../components/rodape-al";
 
 export default function anewfly() {
   return (
@@ -13,9 +12,7 @@ export default function anewfly() {
         <div className={styles.interno}>
           <div className={styles.box}></div>
 
-          <div className={styles.box2}>
-           
-          </div>
+          <div className={styles.box2}></div>
         </div>
       </section>
 
@@ -165,7 +162,7 @@ export default function anewfly() {
           style={{ color: "#FFFFFF", maxWidth: "70rem", textAlign: "center" }}
           className={styles.box}
         >
-          <p style={{ fontSize: "32px", marginBottom:"3rem" }}>
+          <p style={{ fontSize: "32px", marginBottom: "3rem" }}>
             o que exatamente <b style={{ color: "#28B3C7" }}>nós fazemos</b>
           </p>
           <p style={{ fontSize: "46px", lineHeight: "48px" }}>
@@ -178,7 +175,7 @@ export default function anewfly() {
             digital 360
           </p>
 
-          <p style={{ fontSize: "18px", marginTop:"4rem" }} >
+          <p style={{ fontSize: "18px", marginTop: "4rem" }}>
             Com expertise digital, nós trabalhamos o formato 360º como principal
             fonte de geração de resultados, decorrente da centralização de
             demandas em todas as áreas estratégicas do digital em uma mesma
@@ -189,7 +186,6 @@ export default function anewfly() {
       </section>
 
       <Rodape />
-      <RodapeAl />
     </>
   );
 }

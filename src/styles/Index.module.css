@@ -451,10 +451,13 @@
   opacity: 1;
   transform: translateX(0);
 }
+.imageWrapper {
+  width: 100%;
+  max-width: 40rem;
+}
 
 .imageWrapper img {
   width: 100%;
-  display: block;
   filter: grayscale(100%) brightness(0.7);
 
   transition: 0.5s;
@@ -483,16 +486,29 @@
   gap: 4rem;
 }
 
-/* CENTRALIZA TEXTO */
-.center {
-  text-align: center;
+.boxSolucao {
+  width: 100%;
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.boxSolucao2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 80rem;
 }
 
 .center h2 {
   font-size: 42px;
   color: #fff;
   max-width: 700px;
+  margin-bottom: 1rem;
 }
 
 .center h2 span {
@@ -606,7 +622,7 @@
 /* CARROSSEL */
 .carousel {
   width: 100%;
-  height: 600px;
+  height: 50rem;
   overflow: hidden;
   position: relative;
 }
@@ -686,31 +702,576 @@
   }
 }
 
-@media only screen and (min-width: 216px) and (max-width: 926px) {
-  .background {
-    height: 100%;
-  }
+.sectionPreco {
+  width: 100%;
+  padding: 140px 20px;
+  background: linear-gradient(180deg, #111 0%, #000 100%);
+  display: flex;
+  justify-content: center;
+}
 
-  .interno {
+.internoPreco {
+  width: 100%;
+  max-width: 100rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.internoPreco h2 {
+  font-size: 42px;
+  color: #fff;
+  margin-bottom: 4rem;
+}
+
+.internoPreco h2 span {
+  color: #9aff3c;
+}
+
+/* CARDS */
+.cardsSites {
+  width: 100%;
+  max-width: 100rem;
+
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARD */
+.cardSite {
+  width: 100%;
+  max-width: 20rem;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: 0.4s;
+}
+
+.cardSite:hover {
+  transform: translateY(-10px);
+  border-color: #9aff3c;
+}
+
+/* DESTAQUE */
+.highlight {
+  background: #151515;
+  border: 2px solid #9aff3c;
+  transform: scale(1.05);
+}
+
+.popular {
+  background: #9aff3c;
+  color: #000;
+  font-size: 12px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.cardSite h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.price {
+  color: #9aff3c;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.cardSite ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.cardSite ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* BOTÕES */
+.btncardSite {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #9aff3c;
+  color: #9aff3c;
+  cursor: pointer;
+}
+
+.btnCardPrimary {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 999px;
+  background: #9aff3c;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+}
+
+.obs {
+  margin-top: 2rem;
+  color: #888;
+  font-size: 12px;
+}
+
+.sectionClientes {
+  width: 100%;
+  max-width: 100rem;
+  padding: 140px 20px;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.internoClientes {
+  width: 100%;
+  max-width: 100rem;
+}
+
+.internoClientes h2 {
+  color: #fff;
+  font-size: 38px;
+  margin-bottom: 3rem;
+}
+
+.internoClientes h2 span {
+  color: #9aff3c;
+}
+
+/* WRAPPER */
+.logoWrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+/* TRACK */
+.logoTrack {
+  display: flex;
+  animation: scrollLogos 20s linear infinite;
+}
+
+/* LOGO */
+.logoItem {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.logoItem img {
+  width: 100%;
+  max-width: 6rem;
+  margin: 0rem 1rem;
+  filter: grayscale(100%) brightness(0) invert(1); /* 👈 deixa branco */
+
+  transition: all 0.4s ease;
+}
+.logoItem:hover {
+  filter: none; /* 👈 volta cor normal */
+  opacity: 1;
+  transform: scale(1.1);
+  transition: all 0.4s ease;
+}
+
+/* ANIMAÇÃO */
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.sectionFaq {
+  width: 100%;
+  padding: 140px 20px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.internoFaq {
+  width: 100%;
+  max-width: 60rem;
+  text-align: center;
+}
+
+.badgeDark {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.internoFaq h2 {
+  font-size: 38px;
+  margin: 2rem 0 3rem;
+}
+
+.internoFaq h2 span {
+  color: #9aff3c;
+}
+
+/* FAQ LIST */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+/* ITEM */
+.faqItem {
+  background: #f5f5f5;
+  border-radius: 15px;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+
+  text-align: left;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.faqItem:hover {
+  border-color: #9aff3c;
+}
+
+/* HEADER */
+.faqHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqHeader h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.faqHeader span {
+  font-size: 22px;
+  color: #9aff3c;
+}
+
+/* CONTENT */
+.faqContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.faqContent p {
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ABERTO */
+.open .faqContent {
+  max-height: 200px;
+}
+
+/* CTA FINAL */
+/* WRAPPER (centralização + respiro) */
+.ctaWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+/* CARD PRINCIPAL */
+.ctaFinal {
+  width: 100%;
+  max-width: 50rem;
+
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: #fff;
+
+  padding: 4rem 3rem;
+  border-radius: 25px;
+
+  text-align: center;
+
+  position: relative;
+
+  border: 1px solid rgba(154, 255, 60, 0.2);
+
+  box-shadow:
+    0 20px 80px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(154, 255, 60, 0.1);
+
+  animation: floatCTA 6s ease-in-out infinite;
+}
+
+/* BADGE */
+.ctaBadge {
+  display: inline-block;
+  background: rgba(154, 255, 60, 0.1);
+  color: #9aff3c;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 12px;
+  margin-bottom: 1.5rem;
+}
+
+/* TÍTULO */
+.ctaFinal h3 {
+  font-size: 32px;
+  margin-bottom: 1rem;
+}
+
+.ctaFinal h3 span {
+  color: #9aff3c;
+}
+
+/* TEXTO */
+.ctaFinal p {
+  color: #ccc;
+  margin-bottom: 2rem;
+  font-size: 15px;
+}
+
+/* BOTÃO */
+.ctaButton {
+  background: #9aff3c;
+  color: #000;
+
+  border: none;
+  padding: 1rem 2.5rem;
+
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 30px rgba(154, 255, 60, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(154, 255, 60, 0.5);
+}
+
+/* ANIMAÇÃO LEVE */
+@keyframes floatCTA {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@media (max-width: 768px) {
+  .sectionSolucao,
+  .sectionProblema,
+  .sectionPreco,
+  .sectionFaq,
+  .sectionClientes,
+  .section {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 55rem;
-    padding-bottom: 1rem;
+    padding: 60px 0px;
   }
 
-  .box {
-    margin-top: 2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    width: 100%;
-    max-width: 28rem;
+  .box1 {
+    margin: 1rem 0rem;
+  }
+  /* ================== GERAL ================== */
+  .interno,
+  .internoModelo,
+  .internoSolucao,
+  .internoProjetos,
+  .internoPreco,
+  .internoClientes,
+  .internoFaq {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  /* ================== BANNER ================== */
+  .backgroundbanner {
+    height: auto;
+    padding: 6rem 1rem;
+    width: calc(100% - 20px);
+    margin: 20px auto;
+    border-radius: 15px;
+  }
+
+  .internobanner {
     flex-direction: column;
   }
 
-  .box p {
-    font-size: small;
+  .boxbanner h2 {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .boxbanner h4 {
+    font-size: 16px;
+  }
+
+  .boxbanner img {
+    display: none; /* remove imagem gigante que quebra mobile */
+  }
+
+  .botao {
+    margin-top: 2rem;
+    font-size: 16px;
+    width: 100%;
+    max-width: 15rem;
+  }
+
+  /* ================== PRIMEIRO BLOCO ================== */
+  .interno {
+    flex-direction: column;
+    width: 100%;
+    max-width: 20rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box1,
+  .box2 {
+    max-width: 100%;
+  }
+
+  .box1 h2 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ================== TELA (SCROLL SITE) ================== */
+  .screen {
+    max-width: 100%;
+    height: 350px;
+  }
+
+  /* ================== PROBLEMA ================== */
+  .sectionProblema .interno {
+    flex-direction: column;
+  }
+
+  .sectionProblema .box1 {
+    padding: 1.5rem;
+  }
+
+  .item {
+    border-radius: 12px;
+    font-size: 14px;
+  }
+
+  /* ================== SOLUÇÃO ================== */
+  .boxSolucao2 {
+    grid-template-columns: 1fr;
+  }
+
+  .center h2 {
+    font-size: 28px;
+  }
+
+  /* ================== PROJETOS ================== */
+  .carousel {
+    height: 28rem;
+  }
+
+  .item2 {
+    height: 180px;
+  }
+
+  /* ================== PREÇO ================== */
+  .cardsSites {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardSite {
+    max-width: 100%;
+    max-width: 15rem;
+  }
+
+  /* ================== CLIENTES ================== */
+  .logoTrack {
+    display: flex;
+    flex-wrap: wrap;
+    animation-duration: 40s; /* mais suave no mobile */
+  }
+
+  /* ANIMAÇÃO */
+  @keyframes scrollLogos {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .logoItem img {
+    max-width: 7rem;
+  }
+
+  /* ================== FAQ ================== */
+  .internoFaq h2 {
+    font-size: 28px;
+  }
+
+  .faqItem {
+    padding: 1rem;
+  }
+
+  /* ================== CTA FINAL ================== */
+  .ctaFinal {
+    padding: 2rem 1.5rem;
+  }
+
+  .ctaFinal h3 {
+    font-size: 22px;
+  }
+
+  .ctaButton {
+    width: 100%;
   }
 }

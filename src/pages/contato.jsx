@@ -3,7 +3,6 @@ import Menu from "../components/menu";
 import Rodape from "../components/rodape";
 import styles from "../styles/Contato.module.css";
 import Link from "next/link";
-import GoogleMap from "../components/map";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -291,12 +290,6 @@ export default function Contato() {
           </div>
         </div>
       </section>
-      {/*
-      MAPA
-      <section className={styles.background} style={{ paddingTop: "8rem" }}>
-        <GoogleMap />
-      </section>
-      */}
       <Rodape />
       <Snackbar
         open={showAlertSuccess}

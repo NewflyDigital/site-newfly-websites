@@ -46,7 +46,7 @@ function Menu() {
         {/* MENU DESKTOP (LP) */}
         <ul className={`${styles.menu} ${styles.navbar}`}>
           <li onClick={() => scrollToSection("inicio")}>Início</li>
-          <li onClick={() => scrollToSection("sites")}>Sites</li>
+          <li onClick={() => scrollToSection("projetos")}>Sites</li>
           <li onClick={() => scrollToSection("como")}>Como funciona</li>
           <li onClick={() => scrollToSection("projetos")}>Projetos</li>
           <li onClick={() => scrollToSection("preco")}>Preço</li>
@@ -90,6 +90,15 @@ function Menu() {
                 Ver projetos
               </button>
             </div>
+          </div>
+          <div className={styles.mobileNav}>
+            <button onClick={() => scrollToSection("inicio")}>Início</button>
+            <button onClick={() => scrollToSection("projetos")}>Sites</button>
+            <button onClick={() => scrollToSection("como")}>
+              Como funciona
+            </button>
+            <button onClick={() => scrollToSection("preco")}>Preço</button>
+            <button onClick={() => scrollToSection("contato")}>Contato</button>
           </div>
 
           <div className={styles.verticalDivider}></div>

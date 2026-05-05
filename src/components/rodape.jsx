@@ -1,131 +1,71 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import styles from "../styles/Rodape.module.css";
-import PhoneIcon from "@mui/icons-material/Phone";
-import RoomIcon from "@mui/icons-material/Room";
-import EmailIcon from "@mui/icons-material/Email";
-import TextField from "@mui/material/TextField";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
 import Link from "next/link";
-import Button from "@mui/material/Button";
-
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
-const themeOptions = {
-  palette: {
-    type: "light",
-    primary: {
-      main: "#c4c4c4",
-    },
-    secondary: {
-      main: "#c4c4c4",
-    },
-  },
-};
-
-const theme = createTheme(themeOptions);
 
 function Rodape() {
-  const [email, setEmail] = React.useState("");
-  const [disableButton, setDisableButton] = React.useState(false);
-  const [showAlertSuccess, setShowAlertSuccess] = React.useState(false);
-  const [showAlertDanger, setShowAlertDanger] = React.useState(false);
-
   return (
-    <footer id="rodape" className={styles.background}>
-      <div className={styles.interno}>
-        <div className={styles.box_row} style={{ justifyContent: "flex-end" }}>
-          <div className={styles.box2}>
-            <div className={` ${styles.box_row} ${styles.textoverde}`}>
-              Torne seu <br />
-              negócio Online
-            </div>
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        {/* COLUNA 1 */}
+        <div className={styles.col}>
+          <img src="/static/images/logo-Preta.png" className={styles.logo} />
 
-            <div className={` ${styles.box_row} ${styles.textobranco}`}>
-              Vamos criar algo
-              <br />
-              incrível juntos?
-            </div>
+          <p className={styles.description}>
+            Criamos sites modernos que transformam visitantes em clientes.
+          </p>
+        </div>
 
-            <div className={` ${styles.box_row} ${styles.textobranco}`}>
-              <Link legacyBehavior href="/contato">
-                <button className={styles.button}>
-                  <img src="/static/images/seta.png" /> &nbsp; Entre em Contato
-                </button>
-              </Link>
-            </div>
-          </div>
+        {/* COLUNA 2 (MENU) */}
+        <div className={styles.col}>
+          <h4>Navegação</h4>
 
-          <div className={styles.box}>
-            <span>
-              {/* ENDEREÇO
-              
-               <div
-              className={` ${styles.box_row} ${styles.footericon} ${styles.texto}`}
-            >
-              <RoomIcon className={` ${styles.icon} `} />
-              <p>
-              Rua Sinimbú, 134 - Caxias do Sul - RS
-              </p>
-            </div>
-              */}
-              <div className={` ${styles.box_row} ${styles.footericon}`}>
-                <EmailIcon className={` ${styles.icon}`} />
-                contato@newfly.com.br
-              </div>
-              <div className={` ${styles.box_row} ${styles.footericon}`}>
-                <PhoneIcon className={` ${styles.icon}`} />
-                +55 54 9.9999 9999
-              </div>
-            </span>
+          <ul className={styles.links}>
+            <li onClick={() => scrollToId("quemSomos")}>Sobre</li>
+            <li onClick={() => scrollToId("problema")}>Problema</li>
+            <li onClick={() => scrollToId("solucao")}>Solução</li>
+            <li onClick={() => scrollToId("projetos")}>Projetos</li>
+            <li onClick={() => scrollToId("precos")}>Preços</li>
+            <li onClick={() => scrollToId("faq")}>FAQ</li>
+          </ul>
+        </div>
 
-            <div className={styles.box}>
-              <ul className={styles.social_media}>
-                <li>
-                  <Link legacyBehavior href="https://www.facebook.com/">
-                    <a>
-                      <img src="/facebook-preto.png"></img>
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link legacyBehavior href="https://www.instagram.com/">
-                    <a>
-                      <img src="/Instagram-preto.png"></img>
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link legacyBehavior href="https://www.linkedin.com/">
-                    <a>
-                      <img src="/LinkedIn-preto.png"></img>
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    legacyBehavior
-                    href="https://api.whatsapp.com/send?phone=5554999715856"
-                  >
-                    <a target="_blank"></a>
-                  </Link>
-                </li>
-              </ul>
-              <img
-                src="/static/images/logo-Horizontal.png"
-                alt="AL Agência de Marketing"
-                className={styles.logo}
-              />
-            </div>
+        {/* COLUNA 3 (CONTATO) */}
+        <div className={styles.col}>
+          <h4>Contato</h4>
+
+          <p>contato@newfly.com.br</p>
+          <p>+55 54 99999-9999</p>
+
+          <div className={styles.social}>
+            <a href="#" target="_blank">
+              <img src="/instagram-preto.png" />
+            </a>
+            <a href="#" target="_blank">
+              <img src="/facebook-preto.png" />
+            </a>
+            <a href="#" target="_blank">
+              <img src="/linkedin-preto.png" />
+            </a>
           </div>
         </div>
       </div>
+
+      {/* CTA FINAL */}
+      <div className={styles.bottom}>
+        <p>© 2026 Newfly — Todos os direitos reservados</p>
+
+        <button className={styles.cta} onClick={() => scrollToId("contato")}>
+          Criar meu site 🚀
+        </button>
+      </div>
     </footer>
   );
+}
+
+/* SCROLL SUAVE */
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
 export default Rodape;
