@@ -397,6 +397,9 @@
   filter: brightness(0) invert(1);
 }
 
+.mobileNav {
+  display: none;
+}
 /* @media Menu Mobile*/
 @media only screen and (max-width: 926px) {
   /* HEADER */
