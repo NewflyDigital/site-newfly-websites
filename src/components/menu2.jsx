@@ -47,7 +47,7 @@ function Menu() {
   }, []);
 
   return (
-    <div id={styles.menuheader} ref={menuRef} className={styles.header}>
+    <div id={styles.menuheader} ref={menuRef} className={styles.header2}>
       <div className={styles.interno}>
         <Link href="/" className={styles.logo}>
           <img src="/static/images/Logo-Horizontal.png" alt="Logo" />
@@ -57,10 +57,7 @@ function Menu() {
         <ul className={`${styles.menu} ${styles.navbar}`}>
           <li onClick={() => scrollToSection("inicio")}>Início</li>
           <li onClick={() => scrollToSection("como")}>Como funciona</li>
-          <li onClick={() => scrollToSection("projetos")}>Sites</li>
-          <Link href="/projetos">
-            <li>Nossos Projetos</li>
-          </Link>
+          <li onClick={() => scrollToSection("projetos")}>Projetos</li>
           <li onClick={() => scrollToSection("preco")}>Preço</li>
           <Link href="/contato">
             <li>Contato</li>
@@ -90,15 +87,19 @@ function Menu() {
             <div className={styles.divider}></div>
 
             <div className={styles.buttons}>
-              <Link href="/contato">
-                <button className={styles.orcamento}>
-                  Solicitar orçamento
-                </button>
-              </Link>
+              <button
+                className={styles.orcamento}
+                onClick={() => scrollToSection("contato")}
+              >
+                Solicitar orçamento
+              </button>
 
-              <Link href="/projetos">
-                <button className={styles.contato}>Ver projetos</button>
-              </Link>
+              <button
+                className={styles.contato}
+                onClick={() => scrollToSection("projetos")}
+              >
+                Ver projetos
+              </button>
             </div>
           </div>
           <div className={styles.mobileNav}>

@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import FaqItem from "../components/faqitem";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [isVideoPlaying, setVideoPlaying] = useState(false);
@@ -87,7 +88,7 @@ export default function Home() {
 
   return (
     <>
-      <Menu />
+      <Menu className="mt-[-60px]" />
       <a id="inicio" className="mt-[-2rem]" />
       <a id="banner"></a>
       <section className={styles.backgroundbanner}>

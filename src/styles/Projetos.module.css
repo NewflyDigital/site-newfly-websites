@@ -1,0 +1,230 @@
+.backgroundimg {
+  position: relative;
+  background-image: url(/static/images/ban-newfly.png);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* overlay FICA ATRÁS */
+.backgroundimg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: 1;
+}
+
+/* container fica NA FRENTE */
+.container2 {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  transition-delay: 0.2s;
+}
+
+.subtitle {
+  color: #eaeaea;
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0;
+
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.2s;
+  transition-delay: 0.5s;
+}
+
+.title,
+.subtitle {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: 0.6s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sectionProjetos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-auto-rows: 280px;
+  gap: 25px;
+}
+
+.card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:nth-child(1) {
+  grid-row: span 2;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: 0.6s ease;
+}
+
+/* overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  color: #ffffff;
+}
+
+.overlay::before {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: #9aff3c;
+  margin-bottom: 10px;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.4s ease;
+}
+
+.overlay h3,
+.overlay p,
+.category {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.category {
+  font-size: 12px;
+  color: #9aff3c;
+  margin-bottom: 8px;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.card:hover .image {
+  transform: scale(1.15);
+  filter: blur(2px) brightness(0.7);
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover .overlay h3,
+.card:hover .overlay p,
+.card:hover .category {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  box-shadow: 0 0 0px #9aff3c;
+  transition: 0.4s;
+}
+
+.card:hover::after {
+  box-shadow: 0 0 30px #9aff3c40;
+}
+
+.card:hover .overlay::before {
+  transform: scaleX(1);
+}
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 250px;
+  }
+
+  .card:nth-child(1) {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .overlay {
+    padding: 20px;
+  }
+
+  .overlay h3 {
+    font-size: 18px;
+  }
+}

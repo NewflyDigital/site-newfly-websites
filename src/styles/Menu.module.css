@@ -26,6 +26,20 @@
   margin-top: -60px;
 }
 
+.header2 {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  transition: 0.4s;
+  flex-direction: column;
+}
+
 .interno {
   width: 100%;
   max-width: 90rem;

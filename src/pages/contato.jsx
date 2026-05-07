@@ -1,5 +1,5 @@
 import * as React from "react";
-import Menu from "../components/menu";
+import Menu from "../components/menu2";
 import Rodape from "../components/rodape";
 import styles from "../styles/Contato.module.css";
 import Link from "next/link";
@@ -25,7 +25,7 @@ const theme = createTheme({
       main: "#000000",
     },
     secondary: {
-      main: "#28B3C7",
+      main: "# 9aff3c",
     },
   },
 });
@@ -115,209 +115,137 @@ export default function Contato() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Menu />
-      <section className={styles.background3} style={{ paddingBottom: "0px" }}>
-        <div className={styles.interno3}></div>
-      </section>
 
-      <section className={`${styles.background} mt-[6rem]`}>
-        <div className={styles.interno2}>
-          <div className={styles.box2}>
-            <img src="/static/images/telefone.png" />
-            <h3>Quer falar por telefone?</h3>
-            <p>+55 54 9. 8850</p>
-          </div>
-          <div className={styles.box2}>
-            <img src="/static/images/email.png" />
-            <h3>Nosso E-mail</h3>
-            <p>contato@newflydigital.com.br</p>
-          </div>
-          <div className={styles.box2}>
-            <img src="/static/images/mapa.png" />
-            <h3>Te esperamos com café.</h3>
-            <p>
-              Rua XXXXXXXXX, B. Madureira <br />
-              CEP 95000-000 | Caxias do Sul
-            </p>
-          </div>
+      {/* HERO */}
+      <section className={styles.heroContato}>
+        <div className={styles.heroOverlay}></div>
+        <div className={styles.heroContent}>
+          <h1>Fale com a gente</h1>
+          <p>Vamos transformar sua ideia em um projeto que gera resultados.</p>
         </div>
       </section>
-      <section className={`${styles.background} my-[6rem]`}>
-        <div className={styles.interno}>
-          <div
-            className={styles.box_row}
-            style={{ justifyContent: "flex-start" }}
-          >
-            <div className={styles.box}>
-              <h2 className={styles.titulo}>
-                Nossa equipe está pronta para ajudar você.
-              </h2>
-              <p>
-                Combinamos estratégia, design, comunicação e tecnologia em
-                marketing para oferecer aos nossos clientes uma vantagem
-                competitiva pela transformação digital da sua empresa, assim
-                focando no resultado perante o mercado. Com vídeos, apps, sites,
-                materiais impressos pensados em ações online e offline
-                eficientes levamos ao mercado sua marca de forma diferenciada.
-              </p>
-            </div>
 
-            <div className={` ${styles.mobile}`}>
-              <div
-                className={` ${styles.box}`}
-                style={{ alignItems: "flex-start" }}
-              >
-                <h3>Deixe um recado!</h3>
-                <p className={styles.p} style={{ marginBottom: "2rem" }}>
-                  Nossa equipe irá avalia seu recado e reponder o mais breve
-                  possível
-                </p>
+      {/* CONTEÚDO */}
+      <section className={styles.sectionContato}>
+        <div className={styles.containerContato}>
+          {/* ESQUERDA */}
+          <div className={styles.infoContato}>
+            <h2>
+              Vamos conversar sobre <span>seu projeto</span>
+            </h2>
 
-                <Box
-                  component="form"
-                  sx={{ width: "100%" }}
-                  noValidate
-                  autoComplete="off"
-                  onSubmit={handleSubmit}
-                >
-                  <div className="w-full flex flex-row sm:flex-nowrap flex-wrap justify-between items-center">
-                    <TextField
-                      value={nome || ""}
-                      type="text"
-                      margin="normal"
-                      required
-                      fullWidth
-                      id="nome"
-                      label="Nome"
-                      name="nome"
-                      autoFocus
-                      onChange={(event) => setNome(event.target.value)}
-                      sx={{ marginLeft: ".5rem", marginRight: ".5rem" }}
-                      onFocus={() => {
-                        const newError = { ...error };
-                        newError.nome = false;
-                        setError(newError);
-                      }}
-                      error={error.nome}
-                      helperText={error.nome ? "campo obrigatório" : ""}
-                    />
+            <p>
+              Nossa equipe une estratégia, design e tecnologia para criar
+              soluções digitais que realmente geram clientes e crescimento.
+            </p>
 
-                    <TextField
-                      value={email || ""}
-                      type="text"
-                      margin="normal"
-                      required
-                      fullWidth
-                      id="email"
-                      label="E-Mail"
-                      name="email"
-                      onChange={(event) => setEmail(event.target.value)}
-                      sx={{ marginLeft: ".5rem", marginRight: ".5rem" }}
-                      onFocus={() => {
-                        const newError = { ...error };
-                        newError.email = false;
-                        setError(newError);
-                      }}
-                      error={error.email}
-                      helperText={error.email ? "campo obrigatório" : ""}
-                    />
-                  </div>
-                  <div className="w-full flex flex-row sm:flex-nowrap flex-wrap justify-between items-center">
-                    <div
-                      className="select-input w-full"
-                      style={{ marginLeft: ".5rem", marginRight: ".5rem" }}
-                    >
-                      <FormControl fullWidth>
-                        <InputLabel id="select-setor-label">Setor *</InputLabel>
-                        <Select
-                          labelId="select-setor-label"
-                          id="setor"
-                          name="setor"
-                          value={setor || ""}
-                          label="Setor *"
-                          required
-                          error={error.setor}
-                          onChange={(event) => setSetor(event.target.value)}
-                          onFocus={() => {
-                            const newError = { ...error };
-                            newError.setor = false;
-                            setError(newError);
-                          }}
-                        >
-                          <MenuItem key={"comercial"} value={"comercial"}>
-                            Comercial
-                          </MenuItem>
-                          <MenuItem key={"financeiro"} value={"financeiro"}>
-                            Financeiro
-                          </MenuItem>
-                        </Select>
-                        {error.setor && (
-                          <p className="select-error" id="setor-helper-text">
-                            campo obrigatório
-                          </p>
-                        )}
-                      </FormControl>
-                    </div>
-                  </div>
-                  <div style={{ marginLeft: ".5rem", marginRight: ".5rem" }}>
-                    <TextField
-                      value={mensagem || ""}
-                      type="text"
-                      margin="normal"
-                      fullWidth
-                      id="mensagem"
-                      label="Mensagem"
-                      name="mensagem"
-                      multiline
-                      rows={4}
-                      onChange={(event) => setMensagem(event.target.value)}
-                    />
-                  </div>
-                  <div style={{ marginRight: ".5rem" }}>
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      className="bg-[#28B3C7] hover:bg-[#1b7c8a] text-white mx-[.5rem] p-4 mt-2 font-bold border-0  cursor-pointer"
-                      sx={{ marginLeft: 0, marginRight: 0 }}
-                      disabled={disableButton}
-                    >
-                      ENVIAR AGORA
-                    </Button>
-                  </div>
-                </Box>
+            <div className={styles.cardsContato}>
+              <div className={styles.cardContato}>
+                <h4>Telefone</h4>
+                <p>+55 54 9 9999 9999 </p>
+              </div>
+
+              <div className={styles.cardContato}>
+                <h4>Email</h4>
+                <p>contato@newflydigital.com.br</p>
+              </div>
+
+              <div className={styles.cardContato}>
+                <h4>Endereço</h4>
+                <p>Caxias do Sul - RS</p>
               </div>
             </div>
           </div>
+
+          {/* DIREITA */}
+          <div className={styles.formContato}>
+            <h3>Envie sua mensagem</h3>
+            <p>Respondemos o mais rápido possível</p>
+
+            <Box
+              component="form"
+              sx={{ width: "100%" }}
+              noValidate
+              autoComplete="off"
+              onSubmit={handleSubmit}
+            >
+              <div className={styles.row}>
+                <TextField
+                  value={nome || ""}
+                  fullWidth
+                  label="Nome"
+                  name="nome"
+                  onChange={(e) => setNome(e.target.value)}
+                  error={error.nome}
+                  helperText={error.nome ? "campo obrigatório" : ""}
+                />
+
+                <TextField
+                  value={email || ""}
+                  fullWidth
+                  label="E-mail"
+                  name="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  error={error.email}
+                  helperText={error.email ? "campo obrigatório" : ""}
+                />
+              </div>
+
+              <div className={styles.row}>
+                <FormControl fullWidth error={error.setor}>
+                  <InputLabel>Setor *</InputLabel>
+                  <Select
+                    value={setor || ""}
+                    label="Setor *"
+                    onChange={(e) => setSetor(e.target.value)}
+                  >
+                    <MenuItem value="comercial">Comercial</MenuItem>
+                    <MenuItem value="financeiro">Financeiro</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+
+              <TextField
+                value={mensagem || ""}
+                fullWidth
+                label="Mensagem"
+                multiline
+                rows={4}
+                onChange={(e) => setMensagem(e.target.value)}
+                sx={{ marginTop: "1rem" }}
+              />
+
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                disabled={disableButton}
+                className={styles.botaoEnviar}
+              >
+                Enviar mensagem
+              </Button>
+            </Box>
+          </div>
         </div>
       </section>
+
       <Rodape />
+
+      {/* ALERTAS */}
       <Snackbar
         open={showAlertSuccess}
         autoHideDuration={6000}
         onClose={() => setShowAlertSuccess(false)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
-        <Alert
-          onClose={() => setShowAlertSuccess(false)}
-          severity="success"
-          sx={{ width: "100%" }}
-        >
-          Seu contato foi enviado com sucesso!
-        </Alert>
+        <Alert severity="success">Seu contato foi enviado com sucesso!</Alert>
       </Snackbar>
+
       <Snackbar
         open={showAlertDanger}
         autoHideDuration={6000}
         onClose={() => setShowAlertDanger(false)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
-        <Alert
-          onClose={() => setShowAlertDanger(false)}
-          severity="warning"
-          sx={{ width: "100%" }}
-        >
-          Não foi possível enviar o contato!
-        </Alert>
+        <Alert severity="warning">Não foi possível enviar o contato!</Alert>
       </Snackbar>
     </ThemeProvider>
   );
