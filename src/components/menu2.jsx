@@ -57,7 +57,10 @@ function Menu() {
         <ul className={`${styles.menu} ${styles.navbar}`}>
           <li onClick={() => scrollToSection("inicio")}>Início</li>
           <li onClick={() => scrollToSection("como")}>Como funciona</li>
-          <li onClick={() => scrollToSection("projetos")}>Projetos</li>
+          <li onClick={() => scrollToSection("projetos")}>Sites</li>
+          <Link href="/projetos">
+            <li>Nossos Projetos</li>
+          </Link>
           <li onClick={() => scrollToSection("preco")}>Preço</li>
           <Link href="/contato">
             <li>Contato</li>
